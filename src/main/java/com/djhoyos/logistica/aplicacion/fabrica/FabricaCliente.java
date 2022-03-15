@@ -37,6 +37,19 @@ public final class FabricaCliente {
         );
     }
 
+    public static EntidadCliente entidadCliente(Cliente cliente) {
+        return new EntidadCliente(
+                cliente.getId(),
+                cliente.getTipoIdentificacion(),
+                cliente.getNumeroIdentificacion(),
+                cliente.getNombre(),
+                cliente.getDireccion(),
+                cliente.getTelefono(),
+                cliente.getCelular(),
+                cliente.getCorreo()
+        );
+    }
+
     public static EntidadCliente entidad(Cliente cliente) {
         return new EntidadCliente (
                 cliente.getId(),

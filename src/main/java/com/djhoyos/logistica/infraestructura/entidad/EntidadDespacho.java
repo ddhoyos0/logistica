@@ -62,6 +62,24 @@ public class EntidadDespacho {
     @JoinColumn(name="cliente_id", nullable=false)
     private EntidadCliente cliente;
 
+    public EntidadDespacho(int id, TipoEnvio tipoEnvio, EntidadTipoProducto tipoProducto, int cantidad, LocalDateTime fechaRegistro, LocalDate fechaEntrega, String lugarEntrega, Double precio, String placa, String numeroGuia, Double descuento, EntidadCliente cliente) {
+        this.id = id;
+        this.tipoEnvio = tipoEnvio;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.fechaRegistro = fechaRegistro;
+        this.fechaEntrega = fechaEntrega;
+        this.lugarEntrega = lugarEntrega;
+        this.precio = precio;
+        this.placa = placa;
+        this.numeroGuia = numeroGuia;
+        this.descuento = descuento;
+        this.cliente = cliente;
+    }
+
+    public EntidadDespacho() {
+    }
+
     public int getId() {
         return id;
     }

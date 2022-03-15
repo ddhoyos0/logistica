@@ -15,6 +15,10 @@ public final class FabricaTipoProducto {
         return new ComandoTipoProducto(producto.getId(), producto.getCodigo(), producto.getNombre(), producto.getPrecio());
     }
 
+    public static EntidadTipoProducto entidadTipoProducto(TipoProducto producto) {
+        return new EntidadTipoProducto(producto.getId(), producto.getCodigo(), producto.getNombre(), producto.getPrecio());
+    }
+
     public static TipoProducto modelo(ComandoTipoProducto comando) {
         return new TipoProducto(comando.getId(), comando.getCodigo(), comando.getNombre(), comando.getPrecio());
     }

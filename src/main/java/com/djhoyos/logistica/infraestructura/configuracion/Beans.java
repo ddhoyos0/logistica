@@ -1,9 +1,11 @@
 package com.djhoyos.logistica.infraestructura.configuracion;
 
 import com.djhoyos.logistica.dominio.repositorio.IRepositorioCliente;
+import com.djhoyos.logistica.dominio.repositorio.IRepositorioDespacho;
 import com.djhoyos.logistica.dominio.repositorio.IRepositorioRol;
 import com.djhoyos.logistica.dominio.repositorio.IRepositorioUsuario;
 import com.djhoyos.logistica.dominio.servicio.ServicioCliente;
+import com.djhoyos.logistica.dominio.servicio.ServicioDespacho;
 import com.djhoyos.logistica.dominio.servicio.ServicioUsuario;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,5 +23,10 @@ public class Beans {
     @Bean
     public ServicioCliente servicioCliente(IRepositorioCliente repo) {
         return new ServicioCliente(repo);
+    }
+
+    @Bean
+    public ServicioDespacho servicioDespacho(IRepositorioDespacho repo) {
+        return new ServicioDespacho(repo);
     }
 }
