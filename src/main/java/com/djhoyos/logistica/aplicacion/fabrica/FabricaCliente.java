@@ -87,4 +87,17 @@ public final class FabricaCliente {
                 cliente.getCorreo()
         );
     }
+
+    public static EntidadCliente actualizar(EntidadCliente entidad, Cliente cliente) {
+        return new EntidadCliente(
+                entidad.getId(),
+                cliente.getTipoIdentificacion(),
+                cliente.getNumeroIdentificacion(),
+                cliente.getNombre(),
+                cliente.getDireccion(),
+                cliente.getTelefono(),
+                cliente.getCelular(),
+                cliente.getCorreo()
+        );
+    }
 }

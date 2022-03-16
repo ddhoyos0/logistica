@@ -13,4 +13,10 @@ public interface IRepositorioCliente {
     ResponseEntity<List<ComandoCliente>> listar();
 
     ResponseEntity<Boolean> eliminar(Integer id);
+
+    Boolean existeCliente(int id);
+
+    ResponseEntity<ComandoCliente> getCliente(int id);
+
+    ResponseEntity<ComandoCliente> actualizar( int id, Cliente cliente);
 }
