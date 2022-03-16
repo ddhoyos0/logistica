@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class ManejadorCliente {
 
-    private final ServicioCliente servicio;
+    private ServicioCliente servicio;
 
     @Autowired
     public ManejadorCliente(ServicioCliente servicio) {
