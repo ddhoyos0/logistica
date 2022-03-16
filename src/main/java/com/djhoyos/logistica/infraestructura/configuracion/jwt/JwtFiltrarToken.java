@@ -19,17 +19,12 @@ import java.io.IOException;
 public class JwtFiltrarToken extends OncePerRequestFilter {
 
     private final static Logger logger = LoggerFactory.getLogger(JwtFiltrarToken.class);
-    private  JwtProveedor proveedor;
-    private  UserDetailsServiceImpl servicio;
 
-    public JwtFiltrarToken(JwtProveedor proveedor, UserDetailsServiceImpl servicio) {
-        this.proveedor = proveedor;
-        this.servicio = servicio;
-    }
+    @Autowired
+    private JwtProveedor proveedor;
 
-    public JwtFiltrarToken() {
-
-    }
+    @Autowired
+    private UserDetailsServiceImpl servicio;
 
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain filterChain) throws ServletException, IOException {

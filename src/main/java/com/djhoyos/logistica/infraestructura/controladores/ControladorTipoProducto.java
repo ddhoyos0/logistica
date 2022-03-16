@@ -1,8 +1,8 @@
 package com.djhoyos.logistica.infraestructura.controladores;
 
-import com.djhoyos.logistica.aplicacion.comando.ComandoCliente;
 import com.djhoyos.logistica.aplicacion.comando.ComandoMensaje;
-import com.djhoyos.logistica.aplicacion.manejador.ManejadorCliente;
+import com.djhoyos.logistica.aplicacion.comando.ComandoTipoProducto;
+import com.djhoyos.logistica.aplicacion.manejador.ManejadorTipoProducto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,26 +20,26 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("cliente")
+@RequestMapping("tipo-producto")
 @CrossOrigin(origins = "*")
-public class ControladorCliente {
+public class ControladorTipoProducto {
 
-    private final ManejadorCliente manejador;
+    private ManejadorTipoProducto manejador;
 
     @Autowired
-    public ControladorCliente(ManejadorCliente manejador) {
+    public ControladorTipoProducto(ManejadorTipoProducto manejador) {
         this.manejador = manejador;
     }
 
     @PreAuthorize("hasRole('ROLE_USUARIO')")
     @PostMapping("/registrar")
-    public ResponseEntity<ComandoCliente> registrar(@RequestBody ComandoCliente comando) {
+    public ResponseEntity<ComandoTipoProducto> registrar(@RequestBody ComandoTipoProducto comando) {
         return manejador.guardar(comando);
     }
 
     @PreAuthorize("hasRole('ROLE_USUARIO')")
     @GetMapping("/listar")
-    public ResponseEntity<List<ComandoCliente>> listar() {
+    public ResponseEntity<List<ComandoTipoProducto>> listar() {
         return manejador.listar();
     }
 
@@ -51,17 +51,17 @@ public class ControladorCliente {
 
     @PreAuthorize("hasRole('ROLE_USUARIO')")
     @GetMapping("get/{id}")
-    public ResponseEntity<?> getCliente(@PathVariable("id") int id) {
-        if (!manejador.existeCliente(id)) {
+    public ResponseEntity<?> getTipoProducto(@PathVariable("id") int id) {
+        if (!manejador.existe(id)) {
             return new ResponseEntity<>(new ComandoMensaje("no existe"), HttpStatus.NOT_FOUND);
         }
-        return manejador.getCliente(id);
+        return manejador.getTipoProducto(id);
     }
 
     @PreAuthorize("hasRole('ROLE_USUARIO')")
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<?> actualizar(@PathVariable("id") int id, @RequestBody ComandoCliente comando) {
-        if (!manejador.existeCliente(id))
+    public ResponseEntity<?> actualizar(@PathVariable("id") int id, @RequestBody ComandoTipoProducto comando) {
+        if (!manejador.existe(id))
             return new ResponseEntity<>(new ComandoMensaje("no existe"), HttpStatus.NOT_FOUND);
         return manejador.actualizar(id, comando);
     }

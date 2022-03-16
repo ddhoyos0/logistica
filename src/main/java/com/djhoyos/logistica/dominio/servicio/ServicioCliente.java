@@ -18,11 +18,24 @@ public class ServicioCliente {
     public ResponseEntity<ComandoCliente> guardar(Cliente cliente) {
         return repo.guardar(cliente);
     }
+
     public ResponseEntity<List<ComandoCliente>> listar() {
         return repo.listar();
     }
 
     public ResponseEntity<Boolean> eliminar(Integer id) {
         return repo.eliminar(id);
+    }
+
+    public Boolean existeCliente(int id) {
+        return repo.existeCliente(id);
+    }
+
+    public ResponseEntity<ComandoCliente> getCliente(int id) {
+        return repo.getCliente(id);
+    }
+
+    public ResponseEntity<ComandoCliente> actualizar(int id, Cliente cliente) {
+        return repo.actualizar(id, cliente);
     }
 }

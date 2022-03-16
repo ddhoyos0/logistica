@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class ManejadorCliente {
 
-    private final ServicioCliente servicio;
+    private ServicioCliente servicio;
 
     @Autowired
     public ManejadorCliente(ServicioCliente servicio) {
@@ -24,10 +24,22 @@ public class ManejadorCliente {
     }
 
     public ResponseEntity<List<ComandoCliente>> listar() {
-      return servicio.listar();
+        return servicio.listar();
     }
 
     public ResponseEntity<Boolean> eliminar(Integer id) {
         return servicio.eliminar(id);
+    }
+
+    public Boolean existeCliente(int id) {
+        return servicio.existeCliente(id);
+    }
+
+    public ResponseEntity<ComandoCliente> getCliente(int id) {
+        return servicio.getCliente(id);
+    }
+
+    public ResponseEntity<ComandoCliente> actualizar(int id, ComandoCliente comando) {
+        return servicio.actualizar(id, FabricaCliente.modelo(comando));
     }
 }

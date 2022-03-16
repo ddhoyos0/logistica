@@ -50,4 +50,20 @@ public class ServicioClienteImpl implements IRepositorioCliente {
         }
         return new ResponseEntity<>(estado, HttpStatus.OK);
     }
+
+    @Override
+    public Boolean existeCliente(int id) {
+        return repo.existsById(id);
+    }
+
+    @Override
+    public ResponseEntity<ComandoCliente> getCliente(int id) {
+        return new ResponseEntity<>(FabricaCliente.comando(repo.getById(id)), null, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<ComandoCliente> actualizar(int id, Cliente cliente) {
+        EntidadCliente entidad = repo.getById(id);
+        return new ResponseEntity<>(FabricaCliente.comando(repo.save(FabricaCliente.actualizar(entidad, cliente))), null, HttpStatus.OK);
+    }
 }

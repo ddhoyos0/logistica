@@ -25,6 +25,15 @@ public class EntidadTipoProducto {
     @NotNull
     private Double precio;
 
+    public EntidadTipoProducto(int id, String codigo, String nombre, Double precio) {
+        this.id = id;
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    public EntidadTipoProducto() {
+    }
 
     public int getId() {
         return id;

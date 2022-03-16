@@ -5,23 +5,23 @@ import org.springframework.security.core.GrantedAuthority;
 import java.util.Collection;
 
 public class JwtDto {
-    private String troken;
+    private String token;
     private String bearer = "Bearer";
     private String nombreUsuario;
     private Collection<? extends GrantedAuthority> authorities;
 
     public JwtDto(String troken, String nombreUsuario, Collection<? extends GrantedAuthority> authorities) {
-        this.troken = troken;
+        this.token = troken;
         this.nombreUsuario = nombreUsuario;
         this.authorities = authorities;
     }
 
-    public String getTroken() {
-        return troken;
+    public String getToken() {
+        return token;
     }
 
-    public void setTroken(String troken) {
-        this.troken = troken;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getBearer() {
