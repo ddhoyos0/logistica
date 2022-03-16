@@ -24,4 +24,20 @@ public class ManejadorDespacho {
     public ResponseEntity<List<ComandoDespacho>> listar() {
         return servicio.listar();
     }
+
+    public ResponseEntity<Boolean> eliminar(Integer id) {
+        return servicio.eliminar(id);
+    }
+
+    public Boolean existe(int id) {
+        return servicio.existe(id);
+    }
+
+    public ResponseEntity<ComandoDespacho> getDespacho(int id) {
+        return servicio.getDespacho(id);
+    }
+
+    public ResponseEntity<ComandoDespacho> actualizar(int id, ComandoDespacho comando) {
+        return servicio.actualizar(id, FabricaDespacho.modelo(comando));
+    }
 }

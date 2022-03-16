@@ -10,5 +10,13 @@ public interface IRepositorioDespacho {
 
     ResponseEntity<ComandoDespacho> guardar(Despacho despacho);
 
-    ResponseEntity<List<ComandoDespacho>>lista();
+    ResponseEntity<List<ComandoDespacho>> lista();
+
+    ResponseEntity<Boolean> eliminar(Integer id);
+
+    Boolean existe(int id);
+
+    ResponseEntity<ComandoDespacho> getDespacho(int id);
+
+    ResponseEntity<ComandoDespacho> actualizar(int id, Despacho despacho);
 }
