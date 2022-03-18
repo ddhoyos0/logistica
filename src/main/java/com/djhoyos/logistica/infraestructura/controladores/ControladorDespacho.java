@@ -49,7 +49,7 @@ public class ControladorDespacho {
 
     @PreAuthorize("hasRole('ROLE_USUARIO')")
     @GetMapping("get/{id}")
-    public ResponseEntity<?> getCliente(@PathVariable("id") int id) {
+    public ResponseEntity<?> getDespacho(@PathVariable("id") int id) {
         if (!manejador.existe(id)) {
             return new ResponseEntity<>(new ComandoMensaje("no existe"), HttpStatus.NOT_FOUND);
         }
