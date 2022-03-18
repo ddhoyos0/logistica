@@ -81,4 +81,21 @@ public final class FabricaDespacho {
                 FabricaCliente.entidadCliente(entidad.getCliente())
         );
     }
+
+    public static EntidadDespacho actualizar(EntidadDespacho entidad, Despacho despacho) {
+        return new EntidadDespacho(
+                entidad.getId(),
+                despacho.getTipoEnvio(),
+                FabricaTipoProducto.entidadTipoProducto(despacho.getTipoProducto()),
+                despacho.getCantidad(),
+                despacho.getFechaRegistro(),
+                despacho.getFechaEntrega(),
+                despacho.getLugarEntrega(),
+                despacho.getPrecio(),
+                despacho.getPlaca(),
+                despacho.getNumeroGuia(),
+                despacho.getDescuento(),
+                FabricaCliente.entidadCliente(despacho.getCliente())
+        );
+    }
 }
