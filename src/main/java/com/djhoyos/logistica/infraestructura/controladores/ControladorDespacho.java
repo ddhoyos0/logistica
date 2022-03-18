@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("despacho")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class ControladorDespacho {
 
     private final ManejadorDespacho manejador;
@@ -29,12 +29,14 @@ public class ControladorDespacho {
         this.manejador = manejador;
     }
 
+    @PreAuthorize("hasRole('ROLE_USUARIO')")
     @PostMapping("/registrar")
     public ResponseEntity<ComandoDespacho> registrar(@RequestBody ComandoDespacho comando) {
         return manejador.guardar(comando);
     }
 
-    @GetMapping("/listado")
+    @PreAuthorize("hasRole('ROLE_USUARIO')")
+    @GetMapping("/listar")
     public ResponseEntity<List<ComandoDespacho>> listar() {
         return manejador.listar();
     }
