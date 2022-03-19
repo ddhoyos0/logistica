@@ -11,6 +11,7 @@
     <groupId>com.djhoyos</groupId>
     <artifactId>logistica</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>logistica</name>
     <description>logistica</description>
     <properties>
