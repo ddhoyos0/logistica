@@ -115,6 +115,7 @@ public class Despacho extends ValidadorDominio {
 
     private void setPlaca(String placa) {
         validarParametrosObligatorio(placa, "Placa");
+        validarPlaca(placa, tipoEnvio);
         this.placa = placa;
     }
 
